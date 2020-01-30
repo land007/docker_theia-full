@@ -28,7 +28,8 @@ ENTRYPOINT []
 #CMD node /home/theia/agent/proxy.js
 RUN echo 'nohup node /home/theia/agent/proxy.js > /tmp/proxy.out &' >> /start.sh && \
 #RUN echo 'nohup node /home/theia/src-gen/backend/main.js /home/project --hostname=0.0.0.0 --startup-timeout=-1 --inspect=0.0.0.0:9229 > /tmp/theia.out &' >> /start.sh
-	echo 'node /home/theia/src-gen/backend/main.js /home/project --hostname=0.0.0.0 --startup-timeout=-1 --inspect=0.0.0.0:9229' >> /start.sh
+#	echo 'node /home/theia/src-gen/backend/main.js /home/project --hostname=0.0.0.0 --startup-timeout=-1 --inspect=0.0.0.0:9229' >> /start.sh
+	echo 'yarn theia start /home/project --hostname=0.0.0.0' >> /start.sh
 
 USER theia
 CMD /task.sh ; /start.sh ; bash
